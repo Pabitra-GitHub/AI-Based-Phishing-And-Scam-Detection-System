@@ -489,7 +489,7 @@ PhishGuard AI is an academic **cybersecurity and machine-learning** project buil
       <strong>Ch. Pabitra Kumar Nayak</strong><br/>
       <em>Developer & Project Author</em><br/>
       AI-Based Phishing &amp; Scam Detection System<br/>
-      <sub>Academic Cybersecurity &amp; Machine Learning Project</sub>
+      <sub>Machine Learning Project</sub>
     </td>
   </tr>
 </table>
