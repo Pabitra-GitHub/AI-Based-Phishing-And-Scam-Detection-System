@@ -1,0 +1,4 @@
+# PhishGuard AI - Root Requirements
+# Points directly to backend dependency specification
+-r backend/requirements.txt
+

@@ -1,0 +1,414 @@
+{
+  "us_government": {
+    "domains": [
+      "usa.gov",
+      "whitehouse.gov",
+      "irs.gov",
+      "cdc.gov",
+      "nasa.gov",
+      "nih.gov",
+      "state.gov",
+      "fbi.gov",
+      "ssa.gov",
+      "medicare.gov",
+      "va.gov",
+      "dhs.gov",
+      "epa.gov",
+      "usps.com",
+      "ca.gov",
+      "ny.gov",
+      "texas.gov",
+      "fl.gov"
+    ],
+    "display": "United States Government"
+  },
+  "uk_government": {
+    "domains": ["gov.uk", "parliament.uk", "nhs.uk", "police.uk"],
+    "display": "United Kingdom Government & NHS"
+  },
+  "india_government": {
+    "domains": [
+      "india.gov.in",
+      "nic.in",
+      "uidai.gov.in",
+      "incometax.gov.in",
+      "passportindia.gov.in",
+      "mygov.in",
+      "eci.gov.in",
+      "cowin.gov.in",
+      "digilocker.gov.in",
+      "rbi.org.in",
+      "epfindia.gov.in",
+      "cbic.gov.in",
+      "gst.gov.in",
+      "parivahan.gov.in"
+    ],
+    "display": "Government of India & Public Institutions"
+  },
+  "canada_government": {
+    "domains": ["canada.ca", "gc.ca"],
+    "display": "Government of Canada"
+  },
+  "australia_government": {
+    "domains": [
+      "australia.gov.au",
+      "gov.au",
+      "ato.gov.au",
+      "servicesaustralia.gov.au"
+    ],
+    "display": "Australian Government"
+  },
+  "european_union": {
+    "domains": ["europa.eu"],
+    "display": "European Union Institutions"
+  },
+  "international_organizations": {
+    "domains": [
+      "un.org",
+      "who.int",
+      "interpol.int",
+      "unesco.org",
+      "unicef.org",
+      "worldbank.org",
+      "imf.org",
+      "wto.org"
+    ],
+    "display": "United Nations & Intergovernmental Organizations"
+  },
+  "paypal": {
+    "domains": ["paypal.com", "paypal.me"],
+    "display": "PayPal"
+  },
+  "microsoft": {
+    "domains": [
+      "microsoft.com",
+      "live.com",
+      "outlook.com",
+      "office.com",
+      "office365.com",
+      "microsoftonline.com",
+      "azure.com",
+      "bing.com",
+      "visualstudio.com",
+      "windows.com"
+    ],
+    "display": "Microsoft"
+  },
+  "google": {
+    "domains": [
+      "google.com",
+      "gmail.com",
+      "googleapis.com",
+      "youtube.com",
+      "accounts.google.com",
+      "google.co.in",
+      "google.co.uk",
+      "google.de",
+      "android.com",
+      "googlevideo.com",
+      "gstatic.com"
+    ],
+    "display": "Google"
+  },
+  "apple": {
+    "domains": [
+      "apple.com",
+      "icloud.com",
+      "appleid.apple.com",
+      "developer.apple.com"
+    ],
+    "display": "Apple"
+  },
+  "amazon": {
+    "domains": [
+      "amazon.com",
+      "amazon.co.uk",
+      "amazon.de",
+      "amazon.in",
+      "amazon.co.jp",
+      "amazon.ca",
+      "aws.amazon.com",
+      "primevideo.com"
+    ],
+    "display": "Amazon"
+  },
+  "facebook": {
+    "domains": ["facebook.com", "fb.com", "messenger.com", "meta.com"],
+    "display": "Facebook / Meta"
+  },
+  "instagram": {
+    "domains": ["instagram.com"],
+    "display": "Instagram"
+  },
+  "whatsapp": {
+    "domains": ["whatsapp.com", "web.whatsapp.com"],
+    "display": "WhatsApp"
+  },
+  "netflix": {
+    "domains": ["netflix.com"],
+    "display": "Netflix"
+  },
+  "twitter": {
+    "domains": ["twitter.com", "x.com", "t.co"],
+    "display": "Twitter / X"
+  },
+  "linkedin": {
+    "domains": ["linkedin.com"],
+    "display": "LinkedIn"
+  },
+  "chase": {
+    "domains": ["chase.com", "jpmorgan.com"],
+    "display": "Chase Bank"
+  },
+  "wellsfargo": {
+    "domains": ["wellsfargo.com"],
+    "display": "Wells Fargo"
+  },
+  "bankofamerica": {
+    "domains": ["bankofamerica.com", "bofa.com"],
+    "display": "Bank of America"
+  },
+  "citibank": {
+    "domains": ["citi.com", "citibank.com", "citigroup.com"],
+    "display": "Citibank"
+  },
+  "hsbc": {
+    "domains": ["hsbc.com", "hsbc.co.uk"],
+    "display": "HSBC"
+  },
+  "barclays": {
+    "domains": ["barclays.com", "barclays.co.uk"],
+    "display": "Barclays"
+  },
+  "state_bank_of_india": {
+    "domains": ["sbi.co.in", "onlinesbi.sbi", "onlinesbi.com"],
+    "display": "State Bank of India (SBI)"
+  },
+  "hdfc_bank": {
+    "domains": ["hdfcbank.com", "hdfc.com"],
+    "display": "HDFC Bank"
+  },
+  "icici_bank": {
+    "domains": ["icicibank.com"],
+    "display": "ICICI Bank"
+  },
+  "axis_bank": {
+    "domains": ["axisbank.com"],
+    "display": "Axis Bank"
+  },
+  "american_express": {
+    "domains": ["americanexpress.com", "amex.com"],
+    "display": "American Express"
+  },
+  "capital_one": {
+    "domains": ["capitalone.com"],
+    "display": "Capital One"
+  },
+  "fidelity": {
+    "domains": ["fidelity.com"],
+    "display": "Fidelity Investments"
+  },
+  "charles_schwab": {
+    "domains": ["schwab.com"],
+    "display": "Charles Schwab"
+  },
+  "coinbase": {
+    "domains": ["coinbase.com"],
+    "display": "Coinbase"
+  },
+  "binance": {
+    "domains": ["binance.com", "binance.us"],
+    "display": "Binance"
+  },
+  "metamask": {
+    "domains": ["metamask.io"],
+    "display": "MetaMask"
+  },
+  "blockchain": {
+    "domains": ["blockchain.com", "blockchain.info"],
+    "display": "Blockchain.com"
+  },
+  "dropbox": {
+    "domains": ["dropbox.com", "dropboxusercontent.com"],
+    "display": "Dropbox"
+  },
+  "adobe": {
+    "domains": ["adobe.com", "creativecloud.com"],
+    "display": "Adobe"
+  },
+  "zoom": {
+    "domains": ["zoom.us", "zoom.com"],
+    "display": "Zoom"
+  },
+  "slack": {
+    "domains": ["slack.com"],
+    "display": "Slack"
+  },
+  "github": {
+    "domains": ["github.com", "github.io"],
+    "display": "GitHub"
+  },
+  "gitlab": {
+    "domains": ["gitlab.com"],
+    "display": "GitLab"
+  },
+  "atlassian": {
+    "domains": ["atlassian.com", "jira.com", "trello.com", "bitbucket.org"],
+    "display": "Atlassian"
+  },
+  "openai": {
+    "domains": ["openai.com", "chatgpt.com"],
+    "display": "OpenAI"
+  },
+  "anthropic": {
+    "domains": ["anthropic.com", "claude.ai"],
+    "display": "Anthropic"
+  },
+  "spotify": {
+    "domains": ["spotify.com"],
+    "display": "Spotify"
+  },
+  "ebay": {
+    "domains": ["ebay.com", "ebay.co.uk"],
+    "display": "eBay"
+  },
+  "walmart": {
+    "domains": ["walmart.com"],
+    "display": "Walmart"
+  },
+  "target": {
+    "domains": ["target.com"],
+    "display": "Target"
+  },
+  "bestbuy": {
+    "domains": ["bestbuy.com"],
+    "display": "Best Buy"
+  },
+  "costco": {
+    "domains": ["costco.com"],
+    "display": "Costco"
+  },
+  "flipkart": {
+    "domains": ["flipkart.com"],
+    "display": "Flipkart"
+  },
+  "fedex": {
+    "domains": ["fedex.com"],
+    "display": "FedEx"
+  },
+  "ups": {
+    "domains": ["ups.com"],
+    "display": "UPS"
+  },
+  "dhl": {
+    "domains": ["dhl.com", "dhl.de"],
+    "display": "DHL"
+  },
+  "steam": {
+    "domains": ["steampowered.com", "steamcommunity.com"],
+    "display": "Steam"
+  },
+  "epic": {
+    "domains": ["epicgames.com", "fortnite.com"],
+    "display": "Epic Games"
+  },
+  "roblox": {
+    "domains": ["roblox.com"],
+    "display": "Roblox"
+  },
+  "discord": {
+    "domains": ["discord.com", "discord.gg", "discordapp.com"],
+    "display": "Discord"
+  },
+  "telegram": {
+    "domains": ["telegram.org", "t.me", "web.telegram.org"],
+    "display": "Telegram"
+  },
+  "yahoo": {
+    "domains": ["yahoo.com", "mail.yahoo.com"],
+    "display": "Yahoo"
+  },
+  "cloudflare": {
+    "domains": ["cloudflare.com"],
+    "display": "Cloudflare"
+  },
+  "stripe": {
+    "domains": ["stripe.com"],
+    "display": "Stripe"
+  },
+  "shopify": {
+    "domains": ["shopify.com", "myshopify.com"],
+    "display": "Shopify"
+  },
+  "wordpress": {
+    "domains": ["wordpress.com", "wordpress.org", "wp.com"],
+    "display": "WordPress"
+  },
+  "docusign": {
+    "domains": ["docusign.com", "docusign.net"],
+    "display": "DocuSign"
+  },
+  "intuit": {
+    "domains": ["intuit.com", "turbotax.com", "quickbooks.com", "mint.com"],
+    "display": "Intuit"
+  },
+  "reddit": {
+    "domains": ["reddit.com"],
+    "display": "Reddit"
+  },
+  "twitch": {
+    "domains": ["twitch.tv"],
+    "display": "Twitch"
+  },
+  "wikipedia": {
+    "domains": ["wikipedia.org", "wikimedia.org"],
+    "display": "Wikipedia / Wikimedia"
+  },
+  "stackoverflow": {
+    "domains": ["stackoverflow.com", "stackexchange.com"],
+    "display": "Stack Overflow"
+  },
+  "nytimes": {
+    "domains": ["nytimes.com"],
+    "display": "The New York Times"
+  },
+  "bbc": {
+    "domains": ["bbc.com", "bbc.co.uk"],
+    "display": "BBC"
+  },
+  "cnn": {
+    "domains": ["cnn.com"],
+    "display": "CNN"
+  },
+  "reuters": {
+    "domains": ["reuters.com"],
+    "display": "Reuters"
+  },
+  "theguardian": {
+    "domains": ["theguardian.com"],
+    "display": "The Guardian"
+  },
+  "bloomberg": {
+    "domains": ["bloomberg.com"],
+    "display": "Bloomberg"
+  },
+  "developer_platforms": {
+    "domains": [
+      "react.dev",
+      "vuejs.org",
+      "angular.io",
+      "nodejs.org",
+      "python.org",
+      "rust-lang.org",
+      "golang.org",
+      "tailwindcss.com",
+      "developer.mozilla.org",
+      "npmjs.com",
+      "pypi.org",
+      "docker.com",
+      "vercel.com",
+      "netlify.com"
+    ],
+    "display": "Official Developer Technologies & Platforms"
+  }
+}

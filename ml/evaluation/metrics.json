@@ -1,0 +1,48 @@
+{
+  "accuracy": 0.9728,
+  "precision": 0.9974358974358974,
+  "recall": 0.9604938271604938,
+  "f1": 0.9786163522012579,
+  "roc_auc": 0.9934904601571268,
+  "pr_auc": 0.9972431614580753,
+  "confusion_matrix": [
+    [
+      219,
+      1
+    ],
+    [
+      16,
+      389
+    ]
+  ],
+  "test_set_size": 625,
+  "positive_count": 405,
+  "negative_count": 220,
+  "false_negatives_count": 16,
+  "false_positives_count": 1,
+  "model_version": "v2.0.0",
+  "model_type": "LogisticRegression",
+  "timestamp": "2026-10-02T05:13:15.643163+00:00",
+  "baseline_comparison": {
+    "naive_majority": {
+      "accuracy": 0.352,
+      "f1": 0.0
+    },
+    "rules_only": {
+      "accuracy": 0.8512,
+      "precision": 0.8406,
+      "recall": 0.9506,
+      "f1": 0.8922,
+      "confusion_matrix": [
+        [
+          147,
+          73
+        ],
+        [
+          20,
+          385
+        ]
+      ]
+    }
+  }
+}

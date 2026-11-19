@@ -1,0 +1,45 @@
+{
+  "dataset_version": "v2.0.0",
+  "created_at": "2026-10-02T04:59:34.192614+00:00",
+  "total_records": 4395,
+  "columns": [
+    "url",
+    "label",
+    "source",
+    "collection_date",
+    "uncertainty",
+    "domain",
+    "split"
+  ],
+  "sources": {
+    "phishing": [
+      "phishtank",
+      "urlhaus",
+      "openphish"
+    ],
+    "benign": [
+      "tranco_top_verified",
+      "sovereign_curated"
+    ]
+  },
+  "splits": {
+    "train": {
+      "total": 3770,
+      "phishing_count": 1695,
+      "benign_count": 2075,
+      "unique_domains": 2854,
+      "min_date": "2026-08-15",
+      "max_date": "2026-10-02"
+    },
+    "test": {
+      "total": 625,
+      "phishing_count": 405,
+      "benign_count": 220,
+      "unique_domains": 440,
+      "min_date": "2026-09-29",
+      "max_date": "2026-10-02"
+    }
+  },
+  "domain_leakage_overlap": 0,
+  "verification_criteria": "Deterministic deduplication, registrar domain isolation, verified threat-intel feeds, zero train-test domain intersection."
+}

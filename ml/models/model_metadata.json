@@ -1,0 +1,209 @@
+{
+  "model_version": "v2.0.0",
+  "model_type": "LogisticRegression",
+  "created_at": "2026-10-02T05:10:54.557059+00:00",
+  "dataset_file": "phishing_dataset_v2.csv",
+  "features": [
+    "url_length",
+    "domain_length",
+    "path_length",
+    "query_length",
+    "num_dots",
+    "num_hyphens",
+    "num_underscores",
+    "num_slashes",
+    "num_question_marks",
+    "num_equals",
+    "num_at_symbols",
+    "num_percent",
+    "num_ampersands",
+    "num_digits",
+    "num_subdomains",
+    "has_ip_address",
+    "is_https",
+    "has_suspicious_tld",
+    "has_brand_keyword",
+    "has_punycode",
+    "is_shortened",
+    "domain_entropy"
+  ],
+  "training_set_size": 3770,
+  "test_set_size": 625,
+  "cv_results": {
+    "NaiveMajority": {
+      "accuracy": 0.5504,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "roc_auc": 0.5,
+      "pr_auc": 0.4496
+    },
+    "LogisticRegression": {
+      "accuracy": 0.9782,
+      "precision": 0.9921,
+      "recall": 0.9593,
+      "f1": 0.9753,
+      "roc_auc": 0.995,
+      "pr_auc": 0.9958
+    },
+    "DecisionTree": {
+      "accuracy": 0.9748,
+      "precision": 0.9849,
+      "recall": 0.9586,
+      "f1": 0.9715,
+      "roc_auc": 0.9746,
+      "pr_auc": 0.9685
+    },
+    "RandomForest": {
+      "accuracy": 0.9793,
+      "precision": 0.9922,
+      "recall": 0.9616,
+      "f1": 0.9765,
+      "roc_auc": 0.9978,
+      "pr_auc": 0.9977
+    }
+  },
+  "metrics": {
+    "test_accuracy": 0.9728,
+    "test_precision": 0.9974,
+    "test_recall": 0.9605,
+    "test_f1": 0.9786,
+    "test_roc_auc": 0.9935,
+    "test_pr_auc": 0.9972,
+    "confusion_matrix": [
+      [
+        219,
+        1
+      ],
+      [
+        16,
+        389
+      ]
+    ],
+    "false_negatives_count": 16,
+    "false_positives_count": 1
+  },
+  "baseline_comparison": {
+    "naive_majority": {
+      "accuracy": 0.352,
+      "f1": 0.0
+    },
+    "rules_only": {
+      "accuracy": 0.8512,
+      "precision": 0.8406,
+      "recall": 0.9506,
+      "f1": 0.8922,
+      "confusion_matrix": [
+        [
+          147,
+          73
+        ],
+        [
+          20,
+          385
+        ]
+      ]
+    }
+  },
+  "false_negatives_sample": [
+    {
+      "url": "https://tutpaste.com/raw/CPviFs",
+      "domain": "tutpaste.com",
+      "model_prob": 0.0402
+    },
+    {
+      "url": "https://tutpaste.com/raw/Q88luv",
+      "domain": "tutpaste.com",
+      "model_prob": 0.1171
+    },
+    {
+      "url": "https://larpaddon.net/download",
+      "domain": "larpaddon.net",
+      "model_prob": 0.0121
+    },
+    {
+      "url": "https://2mdinfissi.it/",
+      "domain": "2mdinfissi.it",
+      "model_prob": 0.0964
+    },
+    {
+      "url": "https://oauth.eurconsulting.com/",
+      "domain": "eurconsulting.com",
+      "model_prob": 0.1417
+    },
+    {
+      "url": "http://www.votregainbn.biz/",
+      "domain": "votregainbn.biz",
+      "model_prob": 0.2413
+    },
+    {
+      "url": "https://surl.li/cppgei",
+      "domain": "surl.li",
+      "model_prob": 0.0069
+    },
+    {
+      "url": "https://mettamasklofun.gitbook.io/",
+      "domain": "gitbook.io",
+      "model_prob": 0.2205
+    },
+    {
+      "url": "https://metaexmask-login.gitbook.io/us",
+      "domain": "gitbook.io",
+      "model_prob": 0.4044
+    },
+    {
+      "url": "https://www.empressinterba.site/",
+      "domain": "empressinterba.site",
+      "model_prob": 0.1839
+    },
+    {
+      "url": "https://metaxask-login.gitbook.io/",
+      "domain": "gitbook.io",
+      "model_prob": 0.3671
+    },
+    {
+      "url": "https://metrmskloggn.gitbook.io/",
+      "domain": "gitbook.io",
+      "model_prob": 0.1684
+    },
+    {
+      "url": "https://sangari.de/",
+      "domain": "sangari.de",
+      "model_prob": 0.0229
+    },
+    {
+      "url": "https://516720.eu.cc/ceskaposta/cz",
+      "domain": "eu.cc",
+      "model_prob": 0.2554
+    },
+    {
+      "url": "https://robinhodloginuss.gitbook.io/account",
+      "domain": "gitbook.io",
+      "model_prob": 0.1337
+    }
+  ],
+  "feature_importances": {
+    "num_digits": 5.0824,
+    "num_dots": 4.5603,
+    "num_subdomains": 3.8592,
+    "num_underscores": 1.9453,
+    "domain_length": 1.773,
+    "path_length": 1.6465,
+    "has_ip_address": 1.389,
+    "num_slashes": 1.1163,
+    "num_hyphens": 1.0676,
+    "is_https": 0.7413,
+    "domain_entropy": 0.4255,
+    "num_ampersands": 0.4219,
+    "num_equals": 0.3484,
+    "num_question_marks": 0.196,
+    "query_length": 0.1522,
+    "has_suspicious_tld": 0.1415,
+    "has_brand_keyword": 0.0579,
+    "url_length": 0.0456,
+    "is_shortened": 0.0328,
+    "num_percent": 0.0141,
+    "num_at_symbols": 0.0,
+    "has_punycode": 0.0
+  }
+}

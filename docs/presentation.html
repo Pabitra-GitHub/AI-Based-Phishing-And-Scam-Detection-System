@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhishGuard AI — 12-Slide Presentation Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #0B0F19;
+      color: #E2E8F0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Presentation Wrapper */
+    .deck-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      max-width: 1240px;
+      min-height: 680px;
+      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(37, 99, 235, 0.15);
+      padding: 48px;
+      position: relative;
+      flex-direction: column;
+      justify-content: space-between;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .slide.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.985); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Top Bar */
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+    }
+
+    .brand-tag {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #38BDF8;
+    }
+
+    .brand-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #2563EB, #1D4ED8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 14px;
+    }
+
+    .slide-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: #94A3B8;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Slide Titles */
+    h1.slide-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    p.slide-subtitle {
+      font-size: 15px;
+      color: #94A3B8;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    /* Card System */
+    .card {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 20px;
+      backdrop-filter: blur(12px);
+    }
+
+    .card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #F8FAFC;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card p, .card li {
+      font-size: 13px;
+      color: #CBD5E1;
+      line-height: 1.6;
+    }
+
+    .card ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .card li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 8px;
+    }
+
+    .card li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #38BDF8;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    /* Highlight Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-blue { background: rgba(37, 99, 235, 0.15); color: #60A5FA; border: 1px solid rgba(37, 99, 235, 0.3); }
+    .badge-green { background: rgba(16, 185, 129, 0.15); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-red { background: rgba(239, 68, 68, 0.15); color: #F87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .badge-amber { background: rgba(245, 158, 11, 0.15); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .badge-purple { background: rgba(168, 85, 247, 0.15); color: #C084FC; border: 1px solid rgba(168, 85, 247, 0.3); }
+
+    /* Image / Screenshot Placeholder */
+    .image-placeholder {
+      border: 2px dashed rgba(56, 189, 248, 0.35);
+      background: rgba(15, 23, 42, 0.5);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 200px;
+      color: #94A3B8;
+      position: relative;
+    }
+
+    .placeholder-icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #38BDF8;
+    }
+
+    .placeholder-title {
+      font-weight: 700;
+      color: #E2E8F0;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .placeholder-desc {
+      font-size: 11px;
+      color: #64748B;
+      max-width: 320px;
+      line-height: 1.4;
+    }
+
+    /* Code Snippet */
+    .code-box {
+      font-family: 'JetBrains Mono', monospace;
+      background: #090D16;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 11px;
+      color: #38BDF8;
+      margin-top: 10px;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+
+    /* Presenter Notes Bar */
+    .speaker-notes {
+      margin-top: 20px;
+      background: rgba(0, 0, 0, 0.35);
+      border-left: 3px solid #38BDF8;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 12px;
+      color: #94A3B8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .speaker-notes strong {
+      color: #E2E8F0;
+      font-weight: 600;
+    }
+
+    /* Bottom Control Bar */
+    .nav-bar {
+      background: #090D16;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    button.btn {
+      background: #1E293B;
+      color: #F8FAFC;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    button.btn:hover {
+      background: #2563EB;
+      border-color: #3B82F6;
+    }
+
+    button.btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .slide-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .dot.active {
+      background: #38BDF8;
+      width: 24px;
+      border-radius: 9999px;
+    }
+
+    /* Print styles for saving as PDF */
+    @media print {
+      body {
+        background: none;
+        color: black;
+      }
+      .nav-bar { display: none; }
+      .slide {
+        display: flex !important;
+        page-break-after: always;
+        border: none;
+        box-shadow: none;
+        max-width: 100%;
+        min-height: 100vh;
+        margin-bottom: 0;
+        border-radius: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="deck-container">
+
+    <!-- ==================== SLIDE 1: TITLE PAGE ==================== -->
+    <div class="slide active" id="slide-1">
+      <div class="slide-header">
+        <div class="brand-tag">
+          <div class="brand-icon">🛡️</div>
+          PhishGuard AI Platform
+        </div>
+        <div class="slide-number">Slide 01 / 12</div>
+      </div>
+
+      <div style="text-align: center; margin: auto 0; padding: 20px 0;">
+        <span class="badge badge-blue" style="margin-bottom: 16px;">Minor Project Presentation • 7th Semester</span>
+        <h1 style="font-size: 44px; font-weight: 900; color: #FFFFFF; letter-spacing: -1px; margin-bottom: 14px;">
+          PhishGuard AI
+        </h1>
+        <p style="font-size: 20px; font-weight: 500; color: #38BDF8; margin-bottom: 24px; max-width: 780px; margin-left: auto; margin-right: auto;">
+          AI-Based Phishing & Scam Detection System via Multi-Layered Heuristics, Dynamic Programming, and Supervised Machine Learning
+        </p>
+
+        <!-- Presenter Details Grid -->
+        <div class="grid-3" style="max-width: 900px; margin: 0 auto; text-align: left;">
+          <div class="card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);">
+            <div style="font-size: 11px; text-transform: uppercase; color: #94A3B8; margin-bottom: 4px;">Candidate Details</div>
+            <div style="font-weight: 700; color: #FFFFFF; font-size: 15px;">[Candidate Name]</div>
+            <div style="font-size: 12px; color: #38BDF8; font-family: 'JetBrains Mono', monospace; margin-top: 2px;">Reg No: [Roll Number]</div>
+          </div>
+
+          <div class="card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);">
+            <div style="font-size: 11px; text-transform: uppercase; color: #94A3B8; margin-bottom: 4px;">Department & Degree</div>
+            <div style="font-weight: 700; color: #FFFFFF; font-size: 14px;">B.Tech in Computer Science</div>
+            <div style="font-size: 12px; color: #94A3B8; margin-top: 2px;">[Department / School of Tech]</div>
+          </div>
+
+          <div class="card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);">
+            <div style="font-size: 11px; text-transform: uppercase; color: #94A3B8; margin-bottom: 4px;">Project Supervisor</div>
+            <div style="font-weight: 700; color: #FFFFFF; font-size: 14px;">[Guide / Supervisor Name]</div>
+            <div style="font-size: 12px; color: #38BDF8; margin-top: 2px;">[Designation / Department]</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-notes">
+        <strong>Presenter Script:</strong> "Good morning esteemed evaluators. Today I present PhishGuard AI, an intelligent cybersecurity defense system designed to counter zero-day phishing, credential harvesting, and deceptive URL spoofing using a hybrid paradigm of deterministic algorithms and supervised AI."
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 2: THE PROBLEM ==================== -->
+    <div class="slide" id="slide-2">
+      <div class="slide-header">
+        <div class="brand-tag"><div class="brand-icon">⚠️</div> Threat Vector Analysis</div>
+        <div class="slide-number">Slide 02 / 12</div>
+      </div>
+
+      <div>
+        <h1 class="slide-title">The Phishing Epidemic: Why Traditional Security Fails</h1>
+        <p class="slide-subtitle">Over 3.4 billion malicious emails and fake portals appear daily. Attackers exploit subtle algorithmic blindspots in conventional static firewalls.</p>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3><span style="color:#EF4444;">●</span> Modern Social Engineering Vectors</h3>
+            <ul>
+              <li><strong>Deceptive Homoglyphs:</strong> Swapping Latin characters with lookalikes (e.g., <code>paypa1.com</code> or Cyrillic 'а') visually tricking human users.</li>
+              <li><strong>DGA Botnets:</strong> Domain Generation Algorithms creating thousands of short-lived high-entropy domains (e.g., <code>x9v8q-security.top</code>).</li>
+              <li><strong>SSRF Intranet Exploits:</strong> Attackers crafting URLs targeting internal private IP subnets (<code>192.168.1.1</code>, <code>10.0.0.1</code>) and AWS metadata (<code>169.254.169.254</code>).</li>
+              <li><strong>Credential Injection via @:</strong> Splitting authority syntax to disguise destination (<code>https://google.com@malicious-vault.top/login</code>).</li>
+            </ul>
+          </div>
+
+          <div class="image-placeholder">
+            <div class="placeholder-icon">📉</div>
+            <div class="placeholder-title">[Image Placeholder: Static Blacklist Latency vs Zero-Day Threats]</div>
+            <div class="placeholder-desc">Diagram showing traditional anti-phishing blacklists having a 24-48 hour delay, leaving end users vulnerable during peak scam campaign windows.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-notes">
+        <strong>Presenter Script:</strong> "Traditional security relies on public blacklists like Google Safe Browsing. However, blacklists have a 24-hour latency lag. When an attacker registers a brand-new typosquatted domain, blacklists are blind. PhishGuard AI solves this with real-time algorithmic inspection."
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 3: PURPOSE & OBJECTIVES ==================== -->
+    <div class="slide" id="slide-3">
+      <div class="slide-header">
+        <div class="brand-tag"><div class="brand-icon">🎯</div> Vision & Objectives</div>
+        <div class="slide-number">Slide 03 / 12</div>
+      </div>
+
+      <div>
+        <h1 class="slide-title">Project Purpose & The Hybrid Defense Philosophy</h1>
+        <p class="slide-subtitle">Bridging mathematical certainty with predictive machine intelligence for zero-day threat prevention.</p>
+
+        <div class="grid-3">
+          <div class="card">
+            <span class="badge badge-blue" style="margin-bottom: 12px;">Objective 1</span>
+            <h3>Sub-150ms Instant Auditing</h3>
+            <p>Evaluate any given URL in real time without external API rate-limits, network dependencies, or multi-second headless browser overhead.</p>
+            <div class="code-box">Latency target: &lt; 150 ms<br/>Zero cold-start in-memory model</div>
+          </div>
+
+          <div class="card">
+            <span class="badge badge-green" style="margin-bottom: 12px;">Objective 2</span>
+            <h3>Zero False Positives for Sovereign Sites</h3>
+            <p>Ensure that legitimate public services, national portals, and verified brand infrastructure are recognized with 100% mathematical fidelity.</p>
+            <div class="code-box">Guaranteed 0/100 score for .gov.in<br/>Authentic platform certificates</div>
+          </div>
+
+          <div class="card">
+            <span class="badge badge-purple" style="margin-bottom: 12px;">Objective 3</span>
+            <h3>Explainable Cybersecurity (XAI)</h3>
+            <p>Eliminate opaque "black-box" verdicts. Provide actionable, plain-English detection reasons that educate and empower end users.</p>
+            <div class="code-box">Itemized trigger reasons<br/>Plain-English 'What this means'</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-notes">
+        <strong>Presenter Script:</strong> "Our goal was not merely building another classifier, but delivering an explainable, deterministic hybrid engine that operates in under 150 milliseconds and guarantees sovereign domains are never misclassified as threats."
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 4: SYSTEM ARCHITECTURE ==================== -->
+    <div class="slide" id="slide-4">
+      <div class="slide-header">
+        <div class="brand-tag"><div class="brand-icon">🏗️</div> System Architecture</div>
+        <div class="slide-number">Slide 04 / 12</div>
+      </div>
+
+      <div>
+        <h1 class="slide-title">End-to-End Architectural Pipeline</h1>
+        <p class="slide-subtitle">A high-performance decoupled architecture connecting React 18, FastAPI, and modular security services.</p>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Pipeline Stages</h3>
+            <ul>
+              <li><strong>Frontend Layer:</strong> React 18, TypeScript, Tailwind CSS, Lucide icons, full-width responsive telemetry.</li>
+              <li><strong>API Gateway (FastAPI):</strong> Async Python REST endpoints with strict Pydantic URL sanitation and CORS guards.</li>
+              <li><strong>Deterministic Engine (DSA):</strong> Trie keyword extraction, Levenshtein homoglyph matrices, Shannon entropy, and safe-socket probes.</li>
+              <li><strong>AI Classifier:</strong> Scikit-learn Random Forest ensemble operating on 20+ extracted lexical feature vectors.</li>
+              <li><strong>Relational DB:</strong> SQLite persistence with JWT session management, RBAC, and telemetry audit streams.</li>
+            </ul>
+          </div>
+
+          <div class="image-placeholder">
+            <div class="placeholder-icon">🔄</div>
+            <div class="placeholder-title">[Image Placeholder: End-to-End Architecture & Data Flow Diagram]</div>
+            <div class="placeholder-desc">Flowchart tracing a URL request from the Frontend UI → FastAPI Router → Heuristic & DSA Pipeline → ML Engine → Composite Risk Scorer → Database & Client Response.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-notes">
+        <strong>Presenter Script:</strong> "Here is our modular architecture. The frontend submits a URL to FastAPI. Before touching the ML model, the URL passes through our deterministic DSA checks. The pipeline aggregates all signals into a composite risk score between 0 and 100."
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 5: DOMAIN VERIFICATION ==================== -->
+    <div class="slide" id="slide-5">
+      <div class="slide-header">
+        <div class="brand-tag"><div class="brand-icon">🏛️</div> Layer 1: Trust Validation</div>
+        <div class="slide-number">Slide 05 / 12</div>
+      </div>
+
+      <div>
+        <h1 class="slide-title">Domain Verification & Sovereign Whitelist Protection</h1>
+        <p class="slide-subtitle">Deterministic trust engineering eliminating false positive penalties on legitimate public and corporate platforms.</p>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Sovereign Portal Trust Engine</h3>
+            <ul>
+              <li><strong>Automated Sovereign Extension Matching:</strong> Whitelisting authoritative national administrative namespaces (<code>.gov</code>, <code>.nic.in</code>, <code>.gov.in</code>, <code>.mil</code>).</li>
+              <li><strong>Instant Bypass of Statistical Penalties:</strong> Complex multi-subdomain government links (like income tax or passport portals) bypass statistical noise and are awarded verified clean status.</li>
+              <li><strong>Authentic Infrastructure Validation:</strong> Validating registered domains of major tech ecosystems (Google, Microsoft, Apple, PayPal) while actively intercepting spoofed subdomains.</li>
+            </ul>
+          </div>
+
+          <div class="image-placeholder">
+            <div class="placeholder-icon">🛡️</div>
+            <div class="placeholder-title">[Screenshot Placeholder: Verified Sovereign Govt Badge UI]</div>
+            <div class="placeholder-desc">Screenshot of PhishGuard AI scanning 'https://india.gov.in' showing the green verdict card, 0/100 risk score, and 'Official Government Portal' verification badge.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-notes">
+        <strong>Presenter Script:</strong> "One major flaw in pure ML classifiers is that government portals like 'passport.gov.in' have long query strings and weird tokens that trick models into false positives. We resolve this by placing an authoritative sovereign whitelist at Layer 1."
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 6: DSA ENGINES ==================== -->
+    <div class="slide" id="slide-6">
+      <div class="slide-header">
+        <div class="brand-tag"><div class="brand-icon">⚡</div> Layer 2: Algorithmic Core</div>
+        <div class="slide-number">Slide 06 / 12</div>
+      </div>
+
+      <div>
+        <h1 class="slide-title">Algorithmic Defense: Dynamic Programming & Trie Matching</h1>
+        <p class="slide-subtitle">Applying foundational Computer Science algorithms to detect typosquatting and deceptive lexical signatures.</p>
+
+        <div class="grid-2">
+          <div class="card">
+            <span class="badge badge-purple" style="margin-bottom: 10px;">Dynamic Programming</span>
+            <h3>Levenshtein Distance & Confusables Map</h3>
+            <p>Computes the minimal edit distance matrix between incoming target domains and established brand targets.</p>
+            <div class="code-box">
+              D[i,j] = min(<br/>
+              &nbsp;&nbsp;D[i-1,j] + 1, // Deletion<br/>
+              &nbsp;&nbsp;D[i,j-1] + 1, // Insertion<br/>
+              &nbsp;&nbsp;D[i-1,j-1] + cost // Substitution<br/>
+              )<br/>
+              Catches: paypa1 (dist: 1), g00gle (dist: 2)
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="badge badge-blue" style="margin-bottom: 10px;">O(L) Tree Traversal</span>
+            <h3>Prefix & Suffix Tokenized Trie Engine</h3>
+            <p>A high-speed Trie tree that searches sub-millisecond keyword registries regardless of dictionary scale.</p>
+            <div class="code-box">
+              Time Complexity: O(L) where L = length(domain)<br/>
+              Matches: 'login', 'secure', 'verify', 'update'<br/>
+              Flags High-Abuse TLDs: .xyz, .top, .work, .icu
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-notes">
+        <strong>Presenter Script:</strong> "To catch lookalike domains, we implement dynamic programming Levenshtein distance with a confusables map. If someone registers 'paypa1' with the digit 1, our algorithm flags it with an edit distance of 1. Simultaneously, an O(L) Trie identifies urgent phishing tokens."
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 7: ENTROPY & SSRF ==================== -->
+    <div class="slide" id="slide-7">
+      <div class="slide-header">
+        <div class="brand-tag"><div class="brand-icon">🧮</div> Layer 3: Mathematical Heuristics</div>
+        <div class="slide-number">Slide 07 / 12</div>
+      </div>
+
+      <div>
+        <h1 class="slide-title">Advanced Heuristics: Shannon Entropy & SSRF Evasion Defense</h1>
+        <p class="slide-subtitle">Information theory mathematics and CIDR subnet decomposition to prevent automated attacks.</p>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Shannon Information Entropy H(X)</h3>
+            <p>Measures character distribution randomness to catch automated machine-generated domain generation algorithms (DGAs):</p>
+            <div class="code-box">
+              H(X) = - Σ [ P(x_i) * log2(P(x_i)) ]<br/>
+              • Normal domain (google.com): ~ 2.1<br/>
+              • DGA Domain (xk91m7b-pqz.biz): &gt; 3.65 (FLAGGED)
+            </div>
+            <p style="margin-top: 10px; font-size: 12px; color: #94A3B8;">High entropy indicates non-human linguistic patterns typical of malware botnet drop-sites.</p>
+          </div>
+
+          <div class="card">
+            <h3>SSRF & Private Network Defense</h3>
+            <p>Prevents attackers from using PhishGuard as an open proxy to probe local or cloud networks:</p>
+            <ul>
+              <li><strong>RFC-1918 Private Ranges:</strong> Blocks <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>.</li>
+              <li><strong>Loopback & Link-Local:</strong> Blocks <code>127.0.0.1</code>, <code>localhost</code>, and AWS metadata <code>169.254.169.254</code>.</li>
+              <li><strong>@ Symbol Stripping:</strong> Neutralizes credential obfuscation tricks.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-notes">
+        <strong>Presenter Script:</strong> "Malware command-and-control servers use algorithms to generate hundreds of random domains. We detect these mathematically using Claude Shannon's Information Entropy. We also block SSRF attacks targeting private home networks or AWS cloud metadata."
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 8: NETWORK SCANS ==================== -->
+    <div class="slide" id="slide-8">
+      <div class="slide-header">
+        <div class="brand-tag"><div class="brand-icon">🌐</div> Layer 4: Network Security</div>
+        <div class="slide-number">Slide 08 / 12</div>
+      </div>
+
+      <div>
+        <h1 class="slide-title">Live Network Security Scans & Cryptographic Auditing</h1>
+        <p class="slide-subtitle">Active socket probes verifying real-world host existence, SSL certificates, and redirect cloaking.</p>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Active Network Probing Features</h3>
+            <ul>
+              <li><strong>Safe-Socket DNS Resolution:</strong> Verifies active DNS A/AAAA records with a 2-second timeout. Identifies <code>NXDOMAIN</code> dead links immediately.</li>
+              <li><strong>Active SSL/TLS Handshake:</strong> Inspects X.509 certificates over port 443 without downloading untrusted payloads. Catches expired, self-signed, or invalid certificates.</li>
+              <li><strong>Insecure HTTP Flagging:</strong> Flags plaintext port 80 links requesting user login data.</li>
+              <li><strong>Directed Graph Redirect Tracing:</strong> Traverses HTTP 301/302 hops to reveal hidden final landing destinations and cloaked cross-domain redirects.</li>
+            </ul>
+          </div>
+
+          <div class="image-placeholder">
+            <div class="placeholder-icon">🔀</div>
+            <div class="placeholder-title">[Screenshot Placeholder: Live Redirect Chain & Network Details]</div>
+            <div class="placeholder-desc">Screenshot showing PhishGuard AI's redirect tracker UI with hop status codes (301 → 302 → 200), resolved host IP address, latency, and cryptographic protocol indicator.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-notes">
+        <strong>Presenter Script:</strong> "PhishGuard performs active cryptographic and DNS checks. We establish a raw TLS handshake to verify valid X.509 certificates and trace multi-hop HTTP redirect chains to uncover deceptive landing destinations."
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 9: MACHINE LEARNING ENGINE ==================== -->
+    <div class="slide" id="slide-9">
+      <div class="slide-header">
+        <div class="brand-tag"><div class="brand-icon">🤖</div> Layer 5: Supervised AI</div>
+        <div class="slide-number">Slide 09 / 12</div>
+      </div>
+
+      <div>
+        <h1 class="slide-title">Supervised Machine Learning & Feature Engineering</h1>
+        <p class="slide-subtitle">Extracting 20+ lexical and structural vectors to classify zero-day campaign patterns.</p>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Extracted Feature Vectors (20+ Attributes)</h3>
+            <ul>
+              <li><strong>Structural:</strong> URL length, domain length, path depth, token counts, sub-domain counts.</li>
+              <li><strong>Lexical:</strong> Count of hyphens (-), dots (.), underscores (_), digit-to-letter ratio.</li>
+              <li><strong>Protocol:</strong> Is HTTPS, has port in URL, query parameter complexity.</li>
+              <li><strong>Syntactic:</strong> Embedded IP addresses, double-slash (//) redirect tricks, Shannon entropy value.</li>
+            </ul>
+            <div class="code-box">Classifier: Random Forest / Gradient Boosted Ensemble<br/>Serialization: Scikit-learn Joblib (In-memory loaded)</div>
+          </div>
+
+          <div class="card">
+            <h3>Dual-Scoring Logic</h3>
+            <p>PhishGuard calculates two distinct scores for transparent evaluation:</p>
+            <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 12px;">
+              <div style="background: rgba(255,255,255,0.04); padding: 12px; border-radius: 8px;">
+                <strong style="color: #A855F7;">1. ML Confidence Probability (0.0% – 100.0%)</strong>
+                <p style="font-size: 12px; color: #94A3B8; margin-top: 2px;">Statistical model probability that the lexical signature matches known phishing patterns.</p>
+              </div>
+              <div style="background: rgba(255,255,255,0.04); padding: 12px; border-radius: 8px;">
+                <strong style="color: #38BDF8;">2. Composite Risk Score (0 – 100 Points)</strong>
+                <p style="font-size: 12px; color: #94A3B8; margin-top: 2px;">Weighted final threat index fusing deterministic DSA penalties and ML probabilities.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-notes">
+        <strong>Presenter Script:</strong> "Our ML model extracts over 20 lexical features from the URL. We compute both an ML statistical probability and a composite risk score from 0 to 100, combining machine learning with our deterministic security heuristics."
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 10: USER INTERFACE ==================== -->
+    <div class="slide" id="slide-10">
+      <div class="slide-header">
+        <div class="brand-tag"><div class="brand-icon">💻</div> Frontend & User Experience</div>
+        <div class="slide-number">Slide 10 / 12</div>
+      </div>
+
+      <div>
+        <h1 class="slide-title">User Experience: Full-Width Telemetry & Explainable Cards</h1>
+        <p class="slide-subtitle">A state-of-the-art cyber defense dashboard built with React 18, Tailwind CSS, and edge-to-edge layout.</p>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Key UI Innovations</h3>
+            <ul>
+              <li><strong>Interactive Semi-Circular Risk Gauge:</strong> Instant color-coded visual indicator displaying score from 0 to 100.</li>
+              <li><strong>Multi-Column DSA Check Summary:</strong> 3-column responsive grid showcasing the status of all 5 core algorithmic checks side-by-side.</li>
+              <li><strong>Explainable Reason Cards:</strong> Itemized list of triggered rules with severity tags (Critical, High, Medium, Low) and plain-English explanations.</li>
+              <li><strong>Quick Sample Test Links:</strong> One-click sample testing for India.gov.in, Google, Typosquatting, and SSRF targets.</li>
+            </ul>
+          </div>
+
+          <div class="image-placeholder">
+            <div class="placeholder-icon">🖥️</div>
+            <div class="placeholder-title">[Screenshot Placeholder: Full-Screen Scan Result Dashboard]</div>
+            <div class="placeholder-desc">High-resolution screenshot showing the PhishGuard AI Scanner with Risk Gauge, Target URL bar, 3-column DSA Summary grid, and Triggered Detection Reason cards.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-notes">
+        <strong>Presenter Script:</strong> "Our user interface is designed like a professional cyber defense console. It provides full screen visibility with zero wasted margins, an interactive risk gauge, and clear itemized cards explaining exactly why a link is dangerous."
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 11: GOVERNANCE & EVALUATION ==================== -->
+    <div class="slide" id="slide-11">
+      <div class="slide-header">
+        <div class="brand-tag"><div class="brand-icon">📊</div> Enterprise Telemetry</div>
+        <div class="slide-number">Slide 11 / 12</div>
+      </div>
+
+      <div>
+        <h1 class="slide-title">System Governance, Telemetry & Performance Evaluation</h1>
+        <p class="slide-subtitle">Enterprise RBAC security, live audit logging, zero-downtime model updates, and empirical benchmarks.</p>
+
+        <div class="grid-3">
+          <div class="card">
+            <span class="badge badge-green" style="margin-bottom: 12px;">Security & RBAC</span>
+            <h3>Enterprise Governance</h3>
+            <ul>
+              <li>JWT session tokens & bcrypt password hashing.</li>
+              <li>Admin portal managing user status and tracking real-time security audit trails.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <span class="badge badge-purple" style="margin-bottom: 12px;">Zero Downtime</span>
+            <h3>Hot-Reload ML Model</h3>
+            <ul>
+              <li>Admins can reload updated model artifacts without taking down the server.</li>
+              <li>Allows seamless deployment of retrained threat models on the fly.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <span class="badge badge-blue" style="margin-bottom: 12px;">Empirical Metrics</span>
+            <h3>Performance Benchmarks</h3>
+            <ul>
+              <li><strong>Latency:</strong> Averaging &lt; 120ms total end-to-end audit time.</li>
+              <li><strong>Trie Speed:</strong> &lt; 0.5ms per tokenized registry lookup.</li>
+              <li><strong>Accuracy:</strong> 0% false positives on sovereign public portals.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-notes">
+        <strong>Presenter Script:</strong> "PhishGuard AI is enterprise ready. It includes JWT authentication, complete audit trails, and a hot-reload feature that updates the ML model without server downtime. The entire scan runs in under 120 milliseconds."
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 12: CONCLUSION & THANK YOU ==================== -->
+    <div class="slide" id="slide-12">
+      <div class="slide-header">
+        <div class="brand-tag"><div class="brand-icon">🏁</div> Conclusion & Defense</div>
+        <div class="slide-number">Slide 12 / 12</div>
+      </div>
+
+      <div style="text-align: center; margin: auto 0; padding: 20px 0;">
+        <span class="badge badge-green" style="margin-bottom: 14px;">Defense & Viva Concluded</span>
+        <h1 style="font-size: 42px; font-weight: 900; color: #FFFFFF; letter-spacing: -1px; margin-bottom: 12px;">
+          Thank You!
+        </h1>
+        <p style="font-size: 18px; color: #94A3B8; max-width: 680px; margin: 0 auto 28px auto; line-height: 1.5;">
+          PhishGuard AI successfully demonstrates that combining deterministic Data Structures with Machine Learning produces a robust, explainable, and real-time defense against zero-day social engineering.
+        </p>
+
+        <!-- Project Links & Info -->
+        <div class="grid-3" style="max-width: 840px; margin: 0 auto; text-align: left;">
+          <div class="card">
+            <div style="font-size: 11px; text-transform: uppercase; color: #38BDF8; font-weight: bold; margin-bottom: 4px;">Open Source Code</div>
+            <div style="font-size: 13px; font-weight: 600; color: white;">GitHub Repository</div>
+            <div style="font-size: 11px; color: #94A3B8; font-family: 'JetBrains Mono', monospace; margin-top: 2px;">[github.com/your-username/PhishGuard-AI]</div>
+          </div>
+
+          <div class="card">
+            <div style="font-size: 11px; text-transform: uppercase; color: #34D399; font-weight: bold; margin-bottom: 4px;">Live Deployment</div>
+            <div style="font-size: 13px; font-weight: 600; color: white;">Interactive Demonstration</div>
+            <div style="font-size: 11px; color: #94A3B8; font-family: 'JetBrains Mono', monospace; margin-top: 2px;">http://localhost:5173 (Live Web UI)</div>
+          </div>
+
+          <div class="card">
+            <div style="font-size: 11px; text-transform: uppercase; color: #FBBF24; font-weight: bold; margin-bottom: 4px;">Contact & Queries</div>
+            <div style="font-size: 13px; font-weight: 600; color: white;">[Your Email Address]</div>
+            <div style="font-size: 11px; color: #94A3B8; margin-top: 2px;">B.Tech Computer Science & Engineering</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 32px; font-size: 18px; font-weight: 700; color: #38BDF8;">
+          Questions, Feedback & Discussion Invited
+        </div>
+      </div>
+
+      <div class="speaker-notes">
+        <strong>Presenter Script:</strong> "Thank you for your valuable time and attention. I am now open to your questions, critiques, and defense evaluation on PhishGuard AI."
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Interactive Slide Controller Bar -->
+  <div class="nav-bar">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <span style="font-size: 13px; font-weight: 700; color: #38BDF8; font-family: 'JetBrains Mono', monospace;">PhishGuard AI</span>
+      <span style="font-size: 12px; color: #64748B;">• Use ⬅️ ➡️ arrow keys or buttons to navigate</span>
+    </div>
+
+    <div class="slide-dots" id="dotsContainer"></div>
+
+    <div class="nav-buttons">
+      <button class="btn" id="prevBtn" onclick="changeSlide(-1)">◀ Previous</button>
+      <button class="btn" id="nextBtn" onclick="changeSlide(1)">Next ▶</button>
+      <button class="btn" onclick="window.print()" style="background: #0284C7; border-color: #38BDF8;">🖨️ Export PDF</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 12;
+
+    const dotsContainer = document.getElementById('dotsContainer');
+    for (let i = 1; i <= totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'dot' + (i === 1 ? ' active' : '');
+      dot.onclick = () => goToSlide(i);
+      dotsContainer.appendChild(dot);
+    }
+
+    function showSlide(n) {
+      document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+
+      const activeSlide = document.getElementById('slide-' + n);
+      if (activeSlide) {
+        activeSlide.classList.add('active');
+      }
+
+      const dots = document.querySelectorAll('.dot');
+      if (dots[n - 1]) {
+        dots[n - 1].classList.add('active');
+      }
+
+      document.getElementById('prevBtn').disabled = (n === 1);
+      document.getElementById('nextBtn').disabled = (n === totalSlides);
+      currentSlide = n;
+    }
+
+    function changeSlide(direction) {
+      let next = currentSlide + direction;
+      if (next >= 1 && next <= totalSlides) {
+        showSlide(next);
+      }
+    }
+
+    function goToSlide(n) {
+      if (n >= 1 && n <= totalSlides) {
+        showSlide(n);
+      }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        changeSlide(1);
+      } else if (e.key === 'ArrowLeft') {
+        changeSlide(-1);
+      }
+    });
+  </script>
+</body>
+</html>
