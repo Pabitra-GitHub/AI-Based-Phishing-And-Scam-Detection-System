@@ -46,7 +46,58 @@ Before you start, make sure your PC has the following installed:
 
 ---
 
-## 📥 How to Download & Run (Complete Guide)
+## ⚡ Quick Start (TL;DR — 3 Simple Steps)
+
+If you already have **Python** and **Node.js** installed on your PC:
+
+1. **Download & Extract** the project ZIP from GitHub.
+2. Open the extracted folder.
+3. **Double-click `run_dev.bat`** — that's it! Everything else is automated.
+
+---
+
+## 📦 File Guide: What You Download vs. What Gets Created
+
+When downloading or cloning this repository from GitHub, here is the clear breakdown of files:
+
+### 1️⃣ Files Included in the GitHub Download (Already There)
+These are the files you will see right after downloading:
+* **`run_dev.bat`** — The automated Windows launcher (Double-click this to run!).
+* **`stop_app.bat`** — Cleanly shuts down all background servers.
+* **`backend/`** — Python FastAPI backend source code, algorithms, and endpoints.
+* **`frontend/`** — React + TypeScript frontend web application source code.
+* **`ml/`** — Training scripts, dataset builder, evaluation scripts, and brand list.
+* **`.env.example`** — Template configuration file with default settings.
+* **`README.md`** — Complete setup instructions, documentation, and author info.
+* **`docker-compose.yml`** — Optional Docker container deployment file.
+* **`migrations/`** & **`scripts/`** — Database migration definitions and helper scripts.
+
+---
+
+### 2️⃣ Files Created Automatically on First Run (No Manual Work Needed!)
+When you double-click `run_dev.bat`, the script automatically builds these on your machine:
+* **`.venv/`** — Python virtual environment containing backend dependencies (`fastapi`, `scikit-learn`, etc.).
+* **`frontend/node_modules/`** — Node.js packages for the React web app.
+* **`ml/models/phishing_model.joblib`** — The trained AI Machine Learning model binary (auto-trained in ~15-30 seconds if missing).
+* **`app.db`** — Local SQLite database for temporarily storing scans and audit logs (auto-created on first scan).
+
+---
+
+### 3️⃣ Files You Can Edit / Create (Optional)
+* **`.env` (Optional):**
+  * The app runs with default settings out-of-the-box.
+  * If you want to use external threat feeds (VirusTotal, Google Safe Browsing, Gemini AI) or change ports, copy `.env.example` → rename to `.env` → add your API keys.
+
+---
+
+### 4️⃣ Files Intentionally Kept Off GitHub (Private & Excluded)
+* **`Group Project/`** — Local college submission documents and slides (kept safe on author's PC; not needed for the app to work).
+* **`.env`** — Private credentials and secret keys (kept strictly local for security).
+* **Temporary logs / caches** — `__pycache__`, `.pytest_cache`, `.DS_Store`, etc.
+
+---
+
+## 📥 How to Download & Run (Complete Step-by-Step Guide)
 
 > Follow these steps **exactly in order**. No programming knowledge needed.
 
